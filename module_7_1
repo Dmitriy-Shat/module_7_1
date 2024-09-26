@@ -23,10 +23,9 @@ class Shop:
 
     def add(self, *products):
         for product in products:
-            #self.get_products()
+            self.get_products()
             if product not in self.file:
-                print(product.name)
-                self.file = open(self.__file_name, 'w')
+                self.file = open(self.__file_name, 'a')
                 self.file.write(f'{str(product)}\n')
                 self.file.close()
             else:
