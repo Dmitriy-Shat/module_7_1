@@ -8,14 +8,13 @@ class Product:
         self.category = category
 
     def __str__(self):
-        return self.name, self.weight, self.category
+        return f'{self.name}, {self.weight}, {self.category}'
 
 
 class Shop:
 
     def __init__(self):
         self.__file_name = 'products.txt'
-        self.file = None
 
     def get_products(self):
         self.file = open(self.__file_name, 'r')
@@ -24,11 +23,11 @@ class Shop:
 
     def add(self, *products):
         for product in products:
-            self.file = open(self.__file_name, 'r')
-            if product.name not in self.file.name:
+            #self.get_products()
+            if product not in self.file:
                 print(product.name)
                 self.file = open(self.__file_name, 'w')
-                self.file.write(product)
+                self.file.write(f'{str(product)}\n')
                 self.file.close()
             else:
                 return print(f'Продукт {product} с таким названием уже существует.')
