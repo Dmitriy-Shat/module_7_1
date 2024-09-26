@@ -18,14 +18,15 @@ class Shop:
 
     def get_products(self):
         self.file = open(self.__file_name, 'r')
-        pprint(self.file.read())
-        return self.file.close()
+        products = self.files
+        self.files.close()
+        return products
 
     def add(self, *products):
         for product in products:
-            self.get_products()
-            if product not in self.file:
-                self.file = open(self.__file_name, 'a')
+            current_products = self.get_products()
+            if product not in current_products:
+                self.file = open(self.__file_name, 'w')
                 self.file.write(f'{str(product)}\n')
                 self.file.close()
             else:
