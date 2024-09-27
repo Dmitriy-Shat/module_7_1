@@ -29,7 +29,7 @@ class Shop:
                 #file.close()
             else:
                 print(f'Продукт {product} с таким названием уже существует.')
-            file.close()    
+        file.close()    
 
 
 s1 = Shop()
